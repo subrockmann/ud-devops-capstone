@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Lint HTML') {
       steps {
-        sh 'tidy -q -e ./src/templates/*.html'
+        sudo sh 'tidy -q -e ./src/templates/*.html'
       }
     }
 
