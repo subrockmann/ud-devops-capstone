@@ -10,7 +10,9 @@ COPY requirements.txt /app/
 ## Step 2:
 # Copy source code to working directory
 # COPY . src/* /app
-COPY /src/* /app/
+COPY /src/ /app/
+# COPY /src/* /app/
+# COPY /src/templates/* /app/templates/
 
 # Create a working directory
 WORKDIR /app
