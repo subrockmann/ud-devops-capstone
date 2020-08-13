@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Lint HTML') {
       steps {
-        sudo sh 'tidy -q -e ./src/templates/*.html'
+        sh 'tidy -q -e ./src/templates/*.html'
       }
     }
 
     stage('Build Docker Image') {
       steps {
-        sh './run_docker.sh'
+        sh 'sudo ./run_docker.sh'
       }
     }
 
