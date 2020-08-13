@@ -1,8 +1,7 @@
 FROM python:3.7.3-stretch
 
 ## Step 1:
-# Create a working directory
-WORKDIR /app
+
 
 ## Step 1b:
 # Add requirements.txt before rest of repo for caching
@@ -10,7 +9,11 @@ COPY requirements.txt /app/
 
 ## Step 2:
 # Copy source code to working directory
-COPY . src/app.py /app/
+# COPY . src/* /app
+COPY /src/* /app/
+
+# Create a working directory
+WORKDIR /app
 
 ## Step 3:
 # Install packages from requirements.txt

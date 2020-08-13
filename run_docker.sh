@@ -12,4 +12,4 @@ docker image ls
 
 # Step 3: 
 # Run flask app
-docker run -p 5000:8080 subrockmann/udacity_capstone:v1
+docker run -p 5000:80 subrockmann/udacity_capstone:v1
