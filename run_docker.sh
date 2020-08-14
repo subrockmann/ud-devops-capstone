@@ -7,7 +7,7 @@
 docker build --tag=subrockmann/udacity_capstone:v1 .
 
 # Step 2: 
-# List docker images
+# List docker images (not required)
 docker image ls
 
 # Step 3: 
