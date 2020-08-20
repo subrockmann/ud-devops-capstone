@@ -1,14 +1,17 @@
 from flask import Flask, render_template
+import os
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
+    """Render index.html."""
     user = {'username': 'Susanne Brockmann'}
     return render_template('index.html', title='Home', user=user)
 
 @app.route('/hello')
-def HelloWorld():
+def hello_world():
+    """Print Hello World. Used for testing a second route."""
     return "Hello World"
 
 if __name__ == '__main__':
