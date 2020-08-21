@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
-        sh 'ls -l run_docker.sh'
+        sh 'docker build --tag=subrockmann/udacity_capstone:v1 .'
       }
     }
 
