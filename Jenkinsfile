@@ -10,7 +10,6 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         sh 'ls -l run_docker.sh'
-        
       }
     }
 
