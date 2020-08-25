@@ -32,7 +32,8 @@ pipeline {
     stage('Deploy to cluster') {
       steps {
         withAWS(credentials: 'Jenkins', region: eksRegion) {
-          sh 'aws eks --region=${eksRegion} update-kubeconfig --name ${eksClusterName}'
+
+          sh 'aws eks --region=${eksRegion} update-kubeconfig --name ${eksClusterName} --profile my-profile'
           sh 'kubectl apply -f ./k8/deployment.yaml '
 
         }
