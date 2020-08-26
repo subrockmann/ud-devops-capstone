@@ -34,11 +34,23 @@ pipeline {
         withAWS(credentials: 'Jenkins', region: eksRegion) {
 
           sh 'aws eks --region=${eksRegion} update-kubeconfig --name ${eksClusterName}'
-          // sh 'kubectl apply -f ./k8/deployment.yaml '
+
 
         }
       }
     }    
 
+    stage('Deploy cluster') {
+      steps {
+        withAWS(credentials: 'Jenkins', region: eksRegion) {
+
+          sh 'kubectl apply -f ./k8/deployment.yaml'
+          sh 'kubectl get nodes'
+          sh 'kubectl get pod -o wide'
+          sh 'kubectl get deployment'
+
+        }
+      }
+    }  
   }
 }
