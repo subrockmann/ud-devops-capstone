@@ -33,7 +33,7 @@ pipeline {
       steps {
         withAWS(credentials: 'Jenkins', region: eksRegion) {
 
-          sh 'aws eks --region=${eksRegion} update-kubeconfig --name ${eksClusterName} --profile jenkins'
+          sh 'aws eks --region=${eksRegion} update-kubeconfig --name ${eksClusterName}'
           // sh 'kubectl apply -f ./k8/deployment.yaml '
 
         }
