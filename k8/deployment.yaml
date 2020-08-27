@@ -10,11 +10,11 @@ spec:
   selector:
     matchLabels:
       app: capstone-app
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 50%
-      maxSurge: 1
+#  strategy:
+#    type: RollingUpdate
+#    rollingUpdate:
+#      maxUnavailable: 50%
+#      maxSurge: 1
   template:
     metadata:
       labels:
@@ -22,6 +22,7 @@ spec:
     spec:
       containers:
       - name: capstone-app
+        imagePullPolicy: Always
         image: subrockmann/udacity_capstone:v1
         ports:
         - containerPort: 80
