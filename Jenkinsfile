@@ -42,10 +42,7 @@ pipeline {
     stage('Update kubeconfig') {
       steps {
         withAWS(credentials: 'Jenkins', region: eksRegion) {
-
           sh 'aws eks --region=${eksRegion} update-kubeconfig --name ${eksClusterName}'
-
-
         }
       }
     }    
@@ -64,5 +61,14 @@ pipeline {
         }
       }
     }  
+    stage('Update image') {
+      steps {
+        withAWS(credentials: 'Jenkins', region: eksRegion) {
+          echo 'Updating the docker image ...'
+          sh "kubectl set image deployment/capstone-deployment capstone-app=subrockmann/udacity_capstone:$imageVersion"
+          sh 'kubectl rollout status deployments/capstone-deployment'
+        }
+      }
+    } 
   }
 }
