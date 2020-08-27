@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    eksClusterName = 'capstone'
+    eksClusterName = 'capstone1'
     eksRegion = 'eu-central-1'
     imageVersion = 'v2'
 
