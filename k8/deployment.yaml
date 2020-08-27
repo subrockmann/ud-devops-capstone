@@ -4,7 +4,7 @@ metadata:
   name: capstone-deployment
   labels:
     app: capstone-app
-  namespace: default
+
 spec:
   replicas: 2
   selector:
