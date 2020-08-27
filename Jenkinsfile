@@ -2,7 +2,7 @@ pipeline {
   environment {
     eksClusterName = 'capstone1'
     eksRegion = 'eu-central-1'
-    imageVersion = 'v2'
+    imageVersion = 'v1'
 
   }
 
@@ -33,8 +33,8 @@ pipeline {
       steps {
         withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
           echo "Pushing to DockerHub"
-          sh "docker tag capstone subrockmann/udacity_capstone:$imageVersion"
-          sh "docker push subrockmann/udacity_capstone:$imageVersion"
+          sh "docker tag capstone subrockmann/udacity-capstone:$imageVersion"
+          sh "docker push subrockmann/udacity-capstone:$imageVersion"
         }
       }
     }

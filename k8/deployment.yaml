@@ -23,7 +23,7 @@ spec:
       containers:
       - name: capstone-app
         imagePullPolicy: Always
-        image: subrockmann/udacity_capstone:v1
+        image: subrockmann/udacity-capstone:v1
         ports:
         - containerPort: 80
 
