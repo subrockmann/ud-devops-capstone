@@ -8,16 +8,15 @@ pipeline {
 
   agent any
 
-  stage("Cleaning up Docker Files") {
-    steps{
-          echo 'Cleaning up...'
-          sh "docker system prune"
-    }
-  }
-
-
-
   stages {
+    stage("Cleaning up Docker Files") {
+      steps{
+        echo 'Cleaning up...'
+        sh "docker system prune"
+      }
+    }
+
+
     stage('Lint HTML') {
       steps {
         sh 'tidy -q -e ./src/templates/*.html'
