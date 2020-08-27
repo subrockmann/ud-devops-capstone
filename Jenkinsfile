@@ -48,7 +48,7 @@ pipeline {
           sh 'kubectl get nodes'
           sh 'kubectl get pod -o wide'
           sh 'kubectl get deployment'
-          sh 'kubectl get service/capstoneLB'
+          sh 'kubectl get service/capstone-lb'
         }
       }
     }  
