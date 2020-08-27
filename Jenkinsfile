@@ -7,6 +7,16 @@ pipeline {
   }
 
   agent any
+
+  stage("Cleaning up Docker Files") {
+    steps{
+          echo 'Cleaning up...'
+          sh "docker system prune"
+    }
+  }
+
+
+
   stages {
     stage('Lint HTML') {
       steps {
