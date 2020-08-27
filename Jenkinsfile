@@ -2,6 +2,7 @@ pipeline {
   environment {
     eksClusterName = 'capstone'
     eksRegion = 'eu-central-1'
+    imageVersion = 'v1'
 
   }
 
@@ -23,8 +24,8 @@ pipeline {
       steps {
         withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
           echo "Pushing to DockerHub"
-          sh "docker tag capstone subrockmann/udacity_capstone:v1"
-          sh 'docker push subrockmann/udacity_capstone:v1'
+          sh "docker tag capstone subrockmann/udacity_capstone:$imageVersion"
+          sh "docker push subrockmann/udacity_capstone:$imageVersion"
         }
       }
     }
@@ -49,6 +50,8 @@ pipeline {
           sh 'kubectl get pod -o wide'
           sh 'kubectl get deployment'
           sh 'kubectl get service/capstone-lb'
+          // 
+          sh "kubectl set image deployments/capstone capstone=subrockmann/udacity_capstone:$imageVersion"
         }
       }
     }  
