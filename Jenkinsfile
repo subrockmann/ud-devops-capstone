@@ -65,6 +65,7 @@ pipeline {
         withAWS(credentials: 'Jenkins', region: eksRegion) {
           echo 'Updating the docker image ...'
           sh "kubectl set image deployments/capstone-deployment udacity-capstone=subrockmann/udacity-capstone:$imageVersion"
+          sh "kubectl get rs"
           sh 'kubectl rollout status deployments/capstone-deployment -w'
         }
       }
