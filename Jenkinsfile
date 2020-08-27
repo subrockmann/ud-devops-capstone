@@ -51,7 +51,7 @@ pipeline {
           sh 'kubectl get deployment'
           sh 'kubectl get service/capstone-lb'
           // 
-          sh "kubectl set image deployments/capstone-app capstone-app=subrockmann/udacity_capstone:$imageVersion"
+          sh "kubectl set image deployment/capstone-deployment capstone-app=subrockmann/udacity_capstone:$imageVersion"
         }
       }
     }  
